@@ -1,0 +1,155 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.emilysun</groupId>
+  <artifactId>expenseDataService</artifactId>
+  <packaging>war</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>expenseDataService Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <jakarta.ws.version>3.1.0</jakarta.ws.version>
+    <jersey.version>3.0.2</jersey.version>
+    <!--<jersey.version>4.0.0-M1</jersey.version>-->  <!-- TODO: select the version of jersey to use (2.26 or above) -->
+  </properties>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.glassfish.jersey</groupId>
+        <artifactId>jersey-bom</artifactId>
+        <version>${jersey.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+<!--      <dependency>
+        <groupId>org.glassfish.jaxb</groupId>
+        <artifactId>jaxb-bom</artifactId>
+        <version>${jersey.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>-->
+    </dependencies>
+  </dependencyManagement>
+  <dependencies>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>5.11.4</version>
+      <scope>test</scope>
+    </dependency>
+<!--    <dependency>
+      <groupId>org.glassfish.jersey.core</groupId>
+      <artifactId>jersey-common</artifactId>
+      <version>${jersey.version}</version>
+    </dependency>-->
+<!--    <dependency>
+      <groupId>org.glassfish.jersey.containers</groupId>
+      <artifactId>jersey-container-servlet</artifactId>
+      <version>${jersey.version}</version>
+    </dependency>-->
+    <dependency>
+      <groupId>org.glassfish.jersey.containers</groupId>
+      <artifactId>jersey-container-jetty-http</artifactId>
+      <version>${jersey.version}</version>
+    </dependency>
+<!--    <dependency>
+      <groupId>org.eclipse.jetty</groupId>
+      <artifactId>jetty-util</artifactId>
+      <version>12.0.7</version>
+    </dependency>-->
+    <dependency>
+      <groupId>org.eclipse.jetty</groupId>
+      <artifactId>jetty-webapp</artifactId>
+      <version>11.0.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.glassfish.jersey.inject</groupId>
+      <artifactId>jersey-hk2</artifactId>
+      <version>${jersey.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>jakarta.ws.rs</groupId>
+      <artifactId>jakarta.ws.rs-api</artifactId>
+      <version>${jakarta.ws.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>jakarta.servlet</groupId>
+      <artifactId>jakarta.servlet-api</artifactId>
+      <version>5.0.0</version>
+    </dependency>
+
+    <!-- add jackson to support json -->
+    <dependency>
+      <groupId>org.glassfish.jersey.media</groupId>
+      <artifactId>jersey-media-json-jackson</artifactId>
+      <version>${jersey.version}</version>
+    </dependency>
+<!--    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-annotations</artifactId>
+      <version>2.17.1</version>
+    </dependency>-->
+    <!--    <dependency>
+          <groupId>org.glassfish.jersey</groupId>
+          <artifactId>jersey-bom</artifactId>
+          <version>4.0.0-M1</version>
+        </dependency>-->
+    <dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>rest-assured</artifactId>
+      <version>5.4.0</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <version>2.3.230</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-api</artifactId>
+      <version>2.23.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
+      <version>2.23.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-slf4j2-impl</artifactId>
+      <version>2.23.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>2.0.12</version>
+      <!-- <scope>provided</scope> -->
+    </dependency>
+
+    <dependency>
+      <groupId>org.glassfish.jersey.media</groupId>
+      <artifactId>jersey-media-sse</artifactId>
+    </dependency>
+
+  </dependencies>
+  <build>
+    <finalName>expenseDataService</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>15</source>
+          <target>15</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
